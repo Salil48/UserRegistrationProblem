@@ -14,15 +14,23 @@ namespace UserRegistration
 
         public void Validating()
         {
+            Console.WriteLine("--------------------------");
             Regex regex = new Regex(pattern);
             Console.WriteLine("Validating the first name");
             ValidatingFirstName();
+            Console.WriteLine("--------------------------");
             Console.WriteLine("Validating The Last Name");
             ValidatingLastName();
+            Console.WriteLine("--------------------------");
             Console.WriteLine("Validating Email Address");
             ValidatingEmailId();
+            Console.WriteLine("--------------------------");
             Console.WriteLine("Validating Phone Number");
             ValidatingPhoneNum();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("Validating password");
+            ValidatingPassWord();
+            Console.WriteLine("--------------------------");
 
         }
 
@@ -90,6 +98,24 @@ namespace UserRegistration
                 Console.WriteLine("Please enter a mobile number!");
             }
 
+
+        }
+
+        public void ValidatingPassWord()
+        {
+            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            Regex regex = new Regex(passwordPattern);
+            Console.WriteLine("Enter password minimum 8 characters");
+            string password = Console.ReadLine();
+            bool res = regex.IsMatch(password);
+            if (res)
+            {
+                Console.WriteLine("Password valid");
+            }
+            else
+            {
+                Console.WriteLine("invalid password");
+            }
 
         }
     }

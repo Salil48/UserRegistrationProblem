@@ -27,10 +27,6 @@ namespace UserRegistration
             Console.WriteLine("--------------------------");
             Console.WriteLine("Validating Phone Number");
             ValidatingPhoneNum();
-            Console.WriteLine("--------------------------");
-            Console.WriteLine("Validating password");
-            ValidatingPassWord();
-            Console.WriteLine("--------------------------");
 
         }
 
@@ -84,7 +80,7 @@ namespace UserRegistration
         }
         public void ValidatingPhoneNum()
         {
-            string phoneNumPattern = @"^[6-9]+[\s]+[0-9]{10}$";
+            string phoneNumPattern = @"^(91)[0-9]{10}$";
             Regex regex = new Regex(phoneNumPattern);
             Console.WriteLine("Enter valid Phone Number");
             string phoneNumber = Console.ReadLine();
@@ -95,28 +91,12 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Please enter a mobile number!");
+                Console.WriteLine("Invalild mobile number!");
             }
 
 
         }
 
-        public void ValidatingPassWord()
-        {
-            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
-            Regex regex = new Regex(passwordPattern);
-            Console.WriteLine("Enter password minimum 8 characters");
-            string password = Console.ReadLine();
-            bool res = regex.IsMatch(password);
-            if (res)
-            {
-                Console.WriteLine("Password valid");
-            }
-            else
-            {
-                Console.WriteLine("invalid password");
-            }
-
-        }
+        
     }
 }

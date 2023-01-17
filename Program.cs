@@ -4,9 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("User Registration Validating using Regular Expression!!!!");
+            Console.WriteLine("User Registration Validating using Regular Expression!!");
             RegexSample regexSample = new RegexSample();
             regexSample.Validating();
+
         }
     }
 }

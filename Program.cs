@@ -8,7 +8,6 @@
             Console.WriteLine("User Registration Validating using Regular Expression!!!!");
             RegexSample regexSample = new RegexSample();
             regexSample.Validating();
-
         }
     }
 }

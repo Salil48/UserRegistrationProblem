@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using UserRegistration;
 
 namespace UserRegistration
 {
@@ -89,7 +90,7 @@ namespace UserRegistration
                 return ex.Message;
             }
         }
-        public static string ValidatingLastName(string lastName)
+        public static Func<string, string> ValidatingLastName = (lastName) =>
         {
             string pattern = "^[A-Z][a-z]{2,}$";
             Regex regex = new Regex(pattern);
@@ -121,8 +122,8 @@ namespace UserRegistration
             }
             // return default;
 
-        }
-        public static string ValidatingEmailId(string email)
+        };
+        public static Func<string, string> ValidatingEmailId = (email) =>
         {
 
             string emailPattern = (@"^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$");
@@ -154,11 +155,11 @@ namespace UserRegistration
                 return ex.Message;
             }
 
-        }
+        };
 
-        public static string ValidatingPhoneNum(string phoneNum)
+        public static Func<string, string> ValidatingPhoneNum = (phoneNum) =>
         {
-            string[] phoneNumInput = { "91 7852234836", " 91 9865741548", "919865795312", "91@123", "A865" };
+            string[] phoneNumInput = { "91 7852234896", " 91 9865741548", "919865795312", "91@123", "A865" };
             string phoneNumPattern = @"^[0-9]+[\s]+[0-9]{10}$";
             Regex regex = new Regex(phoneNumPattern);
 
@@ -187,10 +188,11 @@ namespace UserRegistration
             {
                 return ex.Message;
             }
-        }
+        };
 
 
-        public static string ValidatingPassWord(string password)
+
+        public static Func<string, string> ValidatingPassWord = (password) =>
         {
             string[] passwordInput = { "Salil253", "samarth_32", "raksh123", "param" };
             string passwordPattern = @"(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?!.*[<>`])(?=[^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*[.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\][^.,:;'!@#$%^&*_+=|(){}[?\-\]\/\\]*$).{8,}$";
@@ -225,6 +227,6 @@ namespace UserRegistration
             }
 
 
-        }
+        };
     }
 }
